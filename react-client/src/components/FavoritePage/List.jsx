@@ -1,20 +1,14 @@
 import React from 'react';
 import { Paper } from 'material-ui';
-// import Favorite from './Favorite.jsx';
+import Favorite from './Favorite.jsx';
 
-const List = ({favorites}) => {
+const List = ({favorites, deleteFavorite}) => {
   return (
     <Paper>
-          <IconButton 
-            style={{float: 'right', marginRight: '50px'}}
-            onClick={() => console.log('clicked')}
-          >
-            <ActionDeleteForever />
-          </IconButton>
       <ol>
-        {restaurants.map((restaurant, i) => (
+        {favorites.map((favorite, i) => (
           <li key={i}>
-            <Restaurant restaurant={restaurant} saveFavorite={saveFavorite}/>
+            <Favorite favorite={favorite} deleteFavorite={deleteFavorite}/>
           </li>
         ))}
       </ol>

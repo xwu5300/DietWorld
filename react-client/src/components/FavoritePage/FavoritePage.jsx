@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { AutoComplete, FlatButton, Paper, IconButton } from 'material-ui';
 import ActionHome from 'material-ui/svg-icons/action/home';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 
 import List from './List.jsx';
 
@@ -15,6 +15,7 @@ class FavoritePage extends Component {
     }
     this.sendTo = this.sendTo.bind(this);
     this.showFavorite = this.showFavorite.bind(this);
+    this.deleteFavorite = this.deleteFavorite.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +28,13 @@ class FavoritePage extends Component {
            this.setState({
              favorites: response.data
            })
-          //  console.log('favorite from server to favorite', response)
+         })
+  }
+
+  deleteFavorite(favorite) {
+    axios.post('/delete', {restaurantId: favorite.restaurantId, userId: favorite.userId})
+         .then((response) => {
+           this.showFavorite(this.props.location.userId)
          })
   }
 
@@ -43,13 +50,15 @@ class FavoritePage extends Component {
     return (
       <Paper>
         <h1> My Favorites
-          <IconButton 
+        <IconButton 
             tooltip="Favorites" 
+            iconStyle={{fill: '#EE4324'}}
             style={{float: 'right', marginRight: '50px'}}
           >
-            <ActionGrade />
+            <ActionFavorite />
           </IconButton>
           <IconButton 
+            iconStyle={{fill: '#966EBD'}}
             tooltip="Home" 
             style={{float: 'right', marginRight: '50px'}}
             onClick={() => this.sendTo('/homepage')}
@@ -58,7 +67,7 @@ class FavoritePage extends Component {
           </IconButton>
         </h1>
         <br/>
-        <List favorites={this.state.favorites}/>
+        <List favorites={this.state.favorites} deleteFavorite={this.deleteFavorite}/>
       </Paper>
     )
   }

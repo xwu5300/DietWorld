@@ -10,6 +10,7 @@ const Restaurant = ({restaurant, saveFavorite}) => {
       <div>
         {restaurant.name}
         <IconButton 
+          tooltip="Like" 
           style={{float: 'right', marginRight: '50px'}}
           onClick={() => saveFavorite(restaurant)}
         >

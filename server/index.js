@@ -5,7 +5,8 @@ const {
   getUser,
   saveUser,
   saveFavorite,
-  getFavorite
+  getFavorite,
+  deleteFavorite
 } = require('../database-mysql');
 
 const api = require('../config.js');
@@ -57,8 +58,13 @@ app.post('/favorite', (req, res) => {
 
 app.get('/favorite', (req, res) => {
   getFavorite(req.query.userId, (results) => {
-    console.log('favorite from database to server', results)
     res.send(results)
+  })
+})
+
+app.post('/delete', (req, res) => {
+  deleteFavorite(req.body.restaurantId, req.body.userId, (results) => {
+    res.send()
   })
 })
 

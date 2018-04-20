@@ -49,7 +49,17 @@ const getFavorite = (userId, callback) => {
   })
 }
 
+const deleteFavorite = (restaurantId, userId, callback) => {
+  const query = `DELETE FROM favorite WHERE restaurantId="${restaurantId}" AND userId="${userId}";`;
+  connection.query(query, (err, results, fields) => {
+    (err) ? 
+    console.error(err) :
+    callback(results)
+  })
+}
+
 module.exports.getUser = getUser;
 module.exports.saveUser = saveUser;
 module.exports.saveFavorite = saveFavorite;
 module.exports.getFavorite = getFavorite;
+module.exports.deleteFavorite = deleteFavorite;

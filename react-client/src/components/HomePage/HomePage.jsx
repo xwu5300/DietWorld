@@ -40,6 +40,7 @@ class HomePage extends Component {
     console.log(params)
     axios.get('/restaurants', params)
          .then((response) => {
+           console.log('response.data.businesses in home', response.data.businesses)
            this.setState({
              restaurants: response.data.businesses,
              isFiltered: false
@@ -50,7 +51,6 @@ class HomePage extends Component {
   saveFavorite(restaurant) {
     axios.post('/favorite', {restaurant: restaurant, userId: this.props.location.userId})
          .then((response) => {
-           console.log('saved favorite to database from homepase', response.data)
          })
   }
 
@@ -113,8 +113,6 @@ class HomePage extends Component {
   filterRestaurants() {
     var results = [];
     const restaurants = this.state.restaurants;
-    // const price = this.state.price;
-    // const is_closed = this.state.is_closed; 
     var keys = ['price1', 'price2', 'price3', 'price4'];
     if (keys.every((key) => !this.state[key])) {
       this.setState({
