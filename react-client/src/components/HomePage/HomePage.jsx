@@ -1,7 +1,5 @@
 import {withRouter} from 'react-router-dom';
 import React, { Component } from 'react';
-// import FaStar from 'react-icons/lib/fa/star';
-// import FaHome from 'react-icons/lib/fa/home';
 import axios from'axios';
 import { Paper, FlatButton, FontIcon, IconButton} from 'material-ui';
 import ActionHome from 'material-ui/svg-icons/action/home';
