@@ -9,7 +9,7 @@ const {
   deleteFavorite
 } = require('../database-mysql');
 
-const api = require('../config.js');
+const api = 'Bearer lAgY3pqIOvHB9zsYzUC9eCYPoitCXHFvEjmFJ1gHAsc5PHiy7JDrQrjtVn8eYbCBRkqiIkA-Bv7w0xTmQ0NdC9-IYJxG9Y4P6PgeO4lMxy4s6r5rbZ4YUGl4M_vUWnYx';
 const app = express();
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
