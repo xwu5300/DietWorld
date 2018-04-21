@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS heroku_a40acc849b598ad;
-
-CREATE DATABASE heroku_a40acc849b598ad;
+CREATE DATABASE IF NOT EXISTS heroku_a40acc849b598ad;
 
 USE heroku_a40acc849b598ad;
 

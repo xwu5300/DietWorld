@@ -1,4 +1,4 @@
-const schema = require('../schema.sql')
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
   host     : 'us-cdbr-iron-east-05.cleardb.net',
