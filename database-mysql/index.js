@@ -32,27 +32,22 @@ const connection = mysql.createConnection({
 //   })
 // })
 
+
 const getUser = (username, callback) => {
   const query = `SELECT * FROM users WHERE name="${username}";`;
   connection.query(query, (err, results, fields) => {
-    if (err) {
-      console.error(err)
-    } else {
-      callback(results)
-      connection.end()
-    }
+    (err) ? 
+    console.error(err) : 
+    callback(results)
   })
 }
 
 const saveUser = (username, callback) => {
   const query = `INSERT INTO users (name) VALUES (?);`;
   connection.query(query, [username], (err, results, fields) => {
-    if (err) {
-      console.error(err)
-    } else {
-      callback(results)
-      connection.end()
-    }
+    (err) ?
+    console.error(err) :
+    callback(results)
   })
 }
 
@@ -64,36 +59,27 @@ const saveFavorite = (params, callback) => {
   const query = `INSERT IGNORE INTO favorite (userId, restaurantId, name, image_url, rating, price, phone, categories, address, review_count, distance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
   const values = [params.userId, restaurant.id, restaurant.name, restaurant.image_url, restaurant.rating, restaurant.price, restaurant.display_phone, categories, address, restaurant.review_count, distance];
   connection.query(query, values, (err, results, fields) => {
-    if (err) {
-      console.error(err)
-    } else {
-      callback()
-      connection.end()
-    }
+    (err) ? 
+    console.error(err) :
+    callback()
   })
 }
 
 const getFavorite = (userId, callback) => {
   const query = `SELECT * FROM favorite WHERE userId="${userId}";`;
   connection.query(query, (err, results, fields) => {
-    if (err) {
-      console.error(err)
-    } else {
-      callback(results)
-      connection.end()
-    }
+    (err) ? 
+    console.error(err) :
+    callback(results)
   })
 }
 
 const deleteFavorite = (restaurantId, userId, callback) => {
   const query = `DELETE FROM favorite WHERE restaurantId="${restaurantId}" AND userId="${userId}";`;
   connection.query(query, (err, results, fields) => {
-    if (err) {
-      console.error(err)
-    } else {
-      callback(results)
-      connection.end()
-    }
+    (err) ? 
+    console.error(err) :
+    callback(results)
   })
 }
 

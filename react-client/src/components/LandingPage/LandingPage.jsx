@@ -2,7 +2,7 @@ import {withRouter} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import axios from'axios';
-import { AutoComplete, FlatButton, Paper } from 'material-ui';
+import { AutoComplete, RaisedButton, Paper } from 'material-ui';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -59,13 +59,13 @@ class LandingPage extends Component {
           onNewRequest={this.handleLogin}
         />
 
-        <FlatButton
+        <RaisedButton
           // style={buttonStyle}
           label='Login'
           onClick={this.handleLogin}
         />
 
-        <FlatButton
+        <RaisedButton
           // style={buttonStyle}
           label='Register'
           onClick={() => {this.sendTo('/registration')}}
