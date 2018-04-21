@@ -7,6 +7,8 @@ const connection = mysql.createConnection({
   database : 'heroku_a40acc849b598ad'
 });
 
+connection.connect();
+
 const getUser = (username, callback) => {
   const query = `SELECT * FROM users WHERE name="${username}";`;
   connection.query(query, (err, results, fields) => {
