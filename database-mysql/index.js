@@ -1,11 +1,10 @@
-// import Restaurant from '../react-client/src/components/HomePage/Restaurant';
-
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  database : 'dietWorld'
+  host     : 'us-cdbr-iron-east-05.cleardb.net',
+  user     : 'b7224f0ec787b2',
+  password : '49258c2c',
+  database : 'heroku_a40acc849b598ad'
 });
 
 const getUser = (username, callback) => {
