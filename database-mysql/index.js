@@ -7,30 +7,32 @@ const connection = mysql.createConnection({
   database : 'heroku_a40acc849b598ad'
 });
 
-connection.connect((err) => {
-  const sql = "CREATE DATABASE IF NOT EXISTS heroku_a40acc849b598ad;" 
-  const sql1 = "USE heroku_a40acc849b598ad;"
-  const sql2 = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL);"
-  const sql3 =  "CREATE TABLE IF NOT EXISTS favorite (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,userId INT,restaurantId VARCHAR(255) UNIQUE KEY,name VARCHAR(255),image_url VARCHAR(255),rating INT(11),price VARCHAR(11),phone VARCHAR(255),categories VARCHAR(255),address VARCHAR(255),review_count INT(11),distance VARCHAR(255));"
-  connection.query(sql, (err, results) => {
-    (err) ?
-    console.error(err) :
-    connection.query(sql1, (err, results) => {
-      (err) ?
-      console.error(err) :
-      connection.query(sql2, (err, results) => {
-        (err) ?
-        console.error(err) :
-        console.log('connected')
-      })
-      connection.query(sql3, (err, results) => {
-        (err) ? 
-        console.error(err) :
-        console.log('created')
-      })
-    })
-  })
-})
+// connection.connect((err) => {
+//   const sql = "CREATE DATABASE IF NOT EXISTS heroku_a40acc849b598ad;" 
+//   const sql1 = "USE heroku_a40acc849b598ad;"
+//   const sql2 = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL);"
+//   const sql3 =  "CREATE TABLE IF NOT EXISTS favorite (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,userId INT,restaurantId VARCHAR(255) UNIQUE KEY,name VARCHAR(255),image_url VARCHAR(255),rating INT(11),price VARCHAR(11),phone VARCHAR(255),categories VARCHAR(255),address VARCHAR(255),review_count INT(11),distance VARCHAR(255));"
+//   connection.query(sql, (err, results) => {
+//     (err) ?
+//     console.error(err) :
+//     connection.query(sql1, (err, results) => {
+//       (err) ?
+//       console.error(err) :
+//       connection.query(sql2, (err, results) => {
+//         (err) ?
+//         console.error(err) :
+//         console.log('connected')
+//       })
+//       connection.query(sql3, (err, results) => {
+//         (err) ? 
+//         console.error(err) :
+//         console.log('created')
+//       })
+//     })
+//   })
+// })
+
+connection.connect();
 
 const getUser = (username, callback) => {
   const query = `SELECT * FROM users WHERE name="${username}";`;
