@@ -1,5 +1,4 @@
 import React from 'react';
-import { Paper } from 'material-ui';
 import Favorite from './Favorite.jsx';
 
 const List = ({favorites, deleteFavorite}) => {

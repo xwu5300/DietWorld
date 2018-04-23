@@ -144,6 +144,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="home">
+        hello {this.props.name}
         <div className="nav">
         <div className="search">
           <Search getRestaurants={this.getRestaurants}/>
@@ -152,7 +153,6 @@ class HomePage extends React.Component {
           <IconButton 
             iconStyle={{fill: 'white'}}
             tooltip="Home" 
-            // style={{float: 'right', marginRight: '50px'}}
             onClick={() => console.log('clicked')}
           >
             <ActionHome />
@@ -160,7 +160,6 @@ class HomePage extends React.Component {
           <IconButton 
             tooltip="Favorites" 
             iconStyle={{fill: 'white'}}
-            // style={{float: 'right', marginRight: '50px'}}
             onClick={() => this.sendTo('/favorite')}
           >
             <ActionFavorite />

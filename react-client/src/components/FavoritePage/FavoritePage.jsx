@@ -1,7 +1,7 @@
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
-import { AutoComplete, FlatButton, Paper, IconButton } from 'material-ui';
+import { IconButton } from 'material-ui';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 

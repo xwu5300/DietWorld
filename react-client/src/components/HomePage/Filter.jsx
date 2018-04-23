@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, RaisedButton } from 'material-ui';
+import { RaisedButton } from 'material-ui';
 
 class Filter extends React.Component {
   constructor(props) {
@@ -95,7 +95,7 @@ class Filter extends React.Component {
 
   render () {
     return (
-      <Paper>
+      <div>
         <RaisedButton
           backgroundColor={this.state.color1}
           style={{marginRight: "5px"}}
@@ -131,7 +131,7 @@ class Filter extends React.Component {
             this.handleClick(4)
           }}
         />
-      </Paper>
+      </div>
     )
   }
 }
