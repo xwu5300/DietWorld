@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link, Switch, History} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -8,7 +8,7 @@ import Registration from './components/LandingPage/Registration.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
 import FavoritePage from './components/FavoritePage/FavoritePage.jsx';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

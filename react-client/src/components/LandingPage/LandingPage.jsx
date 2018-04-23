@@ -1,10 +1,10 @@
 import {withRouter} from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import React, { Component } from 'react';
+import React from 'react';
 import axios from'axios';
 import { AutoComplete, FlatButton, Paper } from 'material-ui';
 
-class LandingPage extends Component {
+class LandingPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

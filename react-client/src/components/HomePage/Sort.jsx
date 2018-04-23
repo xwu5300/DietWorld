@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Paper, SelectField, MenuItem } from 'material-ui';
 
-class Sort extends Component {
+class Sort extends React.Component {
   constructor({props}) {
     super(props);
     this.handleChange = this.handleChange.bind(this);

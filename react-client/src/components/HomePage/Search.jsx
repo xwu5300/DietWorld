@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AutoComplete, Paper, IconButton } from 'material-ui';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 
-class Search extends Component {
+class Search extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

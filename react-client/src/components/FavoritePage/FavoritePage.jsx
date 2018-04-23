@@ -1,5 +1,5 @@
 import {withRouter} from 'react-router-dom';
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { AutoComplete, FlatButton, Paper, IconButton } from 'material-ui';
 import ActionHome from 'material-ui/svg-icons/action/home';
@@ -7,7 +7,7 @@ import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 
 import List from './List.jsx';
 
-class FavoritePage extends Component {
+class FavoritePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

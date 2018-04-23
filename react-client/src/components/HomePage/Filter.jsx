@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Paper, RaisedButton } from 'material-ui';
 
-class Filter extends Component {
+class Filter extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

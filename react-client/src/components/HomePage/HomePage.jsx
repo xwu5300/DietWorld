@@ -1,5 +1,5 @@
 import {withRouter} from 'react-router-dom';
-import React, { Component } from 'react';
+import React from 'react';
 import axios from'axios';
 import { Paper, FlatButton, FontIcon, IconButton} from 'material-ui';
 import ActionHome from 'material-ui/svg-icons/action/home';
@@ -11,7 +11,7 @@ import Filter from './Filter.jsx';
 import Sort from './Sort.jsx';
 
 
-class HomePage extends Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
