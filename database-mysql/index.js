@@ -1,17 +1,17 @@
 const mysql = require('mysql');
 
-// const connection = mysql.createConnection({
-//   host     : 'us-cdbr-iron-east-05.cleardb.net',
-//   user     : 'b7224f0ec787b2',
-//   password : '49258c2c',
-//   database : 'heroku_a40acc849b598ad'
-// });
-
 const connection = mysql.createConnection({
-  host     : '127.0.0.1',
-  user     : 'root',
-  database : 'dietWorld'
+  host     : 'us-cdbr-iron-east-05.cleardb.net',
+  user     : 'b7224f0ec787b2',
+  password : '49258c2c',
+  database : 'heroku_a40acc849b598ad'
 });
+
+// const connection = mysql.createConnection({
+//   host     : '127.0.0.1',
+//   user     : 'root',
+//   database : 'dietWorld'
+// });
 
 //Only use below function for the first time to create database and tables.
 // connection.connect((err) => {
