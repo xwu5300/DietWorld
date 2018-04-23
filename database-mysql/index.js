@@ -13,6 +13,10 @@ const connection = mysql.createConnection({
 //   database : 'dietWorld'
 // });
 
+connection.connect();
+
+
+
 //Only use below function for the first time to create database and tables.
 // connection.connect((err) => {
 //   const sql = "CREATE DATABASE IF NOT EXISTS heroku_a40acc849b598ad;" 
@@ -38,6 +42,7 @@ const connection = mysql.createConnection({
 //     })
 //   })
 // })
+
 
 
 const getUser = (username, callback) => {
