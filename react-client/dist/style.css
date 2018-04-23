@@ -1,0 +1,155 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+}
+
+#app {
+    height: 100vh;
+    width: 100vw;
+}
+
+.landing-paper {
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+}
+
+.landing {
+    background: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("http://www.paleonewbie.com/wp-content/uploads/2014/07/PaleoNewbie-Salad-Macadamia-Chicken-1266x850-wrp45.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home {
+    height: 100%;
+    width: 100%;
+    /* padding: 10px; */
+    text-align: center;
+    position: absolute;
+}
+
+.nav {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 100%;
+    background: url("http://ak2.picdn.net/shutterstock/videos/14097812/thumb/1.jpg");
+}
+
+.search {
+    margin-left: 50px;
+    color: white;
+    float: left;    
+}
+
+.icon-button {
+    color: white;
+    float: right;
+    margin: 0 50px; 
+}
+
+.nav2 {
+    display: inline-block;
+    vertical-align: center;
+    width: 100%;
+    background: #efeded;
+}
+
+.filter {
+    margin: 5px 50px; 
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.sort {
+    float: right;
+    margin: 10px 50px; 
+    vertical-align: center;
+}
+
+.paleo {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.restaurant {
+    width: 100%;
+    border-bottom: 1px solid #efeded;
+}
+
+.contain {
+    display: inline-block;
+    width: 70%;
+    margin: 20px;
+    padding: 10px 50px;
+    text-align: left;
+}
+
+.contain2 {
+    float: left;
+    word-wrap: break-word;
+    width: 40%;
+    margin-right: 20px;
+}
+
+.restaurant-image {
+    height: 100px;
+    width: 100px;
+}
+
+.contain1 {
+    float: left;
+    width: 20%;
+}
+
+/* .contain3 {
+    float: right;
+    width: 30%
+} */
+
+.name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rates {
+    display: inline-block;
+}
+
+.review {
+    color: grey;
+    margin-left: 10px;
+    float: left;
+}
+
+.rating {
+    float: left;
+}
+
+.distance {
+    margin-top: 10px;
+    color: grey;
+}
+
+.favo-head {
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: left;
+    padding: 20px;
+}

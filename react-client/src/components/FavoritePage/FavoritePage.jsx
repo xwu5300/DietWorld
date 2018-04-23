@@ -48,27 +48,28 @@ class FavoritePage extends Component {
 
   render() {
     return (
-      <Paper>
-        <h1> My Favorites
+      <div className="home">
+        <div className="nav">
         <IconButton 
             tooltip="Favorites" 
-            iconStyle={{fill: '#EE4324'}}
+            iconStyle={{fill: 'white'}}
             style={{float: 'right', marginRight: '50px'}}
           >
             <ActionFavorite />
           </IconButton>
           <IconButton 
-            iconStyle={{fill: '#966EBD'}}
+            iconStyle={{fill: 'white'}}
             tooltip="Home" 
             style={{float: 'right', marginRight: '50px'}}
             onClick={() => this.sendTo('/homepage')}
           >
             <ActionHome />
           </IconButton>
-        </h1>
+        </div>
+        <h1 className="favo-head"> My Favorites </h1>
         <br/>
         <List favorites={this.state.favorites} deleteFavorite={this.deleteFavorite}/>
-      </Paper>
+      </div>
     )
   }
 }

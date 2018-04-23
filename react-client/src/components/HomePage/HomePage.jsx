@@ -34,11 +34,13 @@ class HomePage extends Component {
     this.sendTo = this.sendTo.bind(this);
   }
 
+  componentDidMount() {
+    this.getRestaurants({params: {term: `Paleo`, location: 10017, radius: 20000}})
+  }
+
   getRestaurants(params) {
-    console.log(params)
     axios.get('/restaurants', params)
          .then((response) => {
-           console.log('response.data.businesses in home', response.data.businesses)
            this.setState({
              restaurants: response.data.businesses,
              isFiltered: false
@@ -55,7 +57,7 @@ class HomePage extends Component {
   sendTo(path) {
     this.props.history.push({
       pathname: path,
-      username: this.props.location.username,
+      // username: this.props.location.username,
       userId: this.props.location.userId
     })
   }
@@ -140,40 +142,58 @@ class HomePage extends Component {
   }
 
   render() {
+    console.log('this.state.price1', this.state.price1)
+    console.log('this.state.price1', this.state.price2)
+    console.log('this.state.price1', this.state.price3)
+    console.log('this.state.price1', this.state.price4)
+    console.log(this.state.restaurants)
     return (
-      <Paper>
-        <h1> Hello {this.props.location.username} 
+      <div className="home">
+        <div className="nav">
+        <div className="search">
+          <Search getRestaurants={this.getRestaurants}/>
+        </div>
+        <div className="icon-button">
           <IconButton 
-            tooltip="Favorites" 
-            iconStyle={{fill: '#EE4324'}}
-            style={{float: 'right', marginRight: '50px'}}
-            onClick={() => this.sendTo('/favorite')}
-          >
-            <ActionFavorite />
-          </IconButton>
-          <IconButton 
-            iconStyle={{fill: '#966EBD'}}
+            iconStyle={{fill: 'white'}}
             tooltip="Home" 
-            style={{float: 'right', marginRight: '50px'}}
+            // style={{float: 'right', marginRight: '50px'}}
             onClick={() => console.log('clicked')}
           >
             <ActionHome />
           </IconButton>
-        </h1>
-        <Search getRestaurants={this.getRestaurants}/>
+          <IconButton 
+            tooltip="Favorites" 
+            iconStyle={{fill: 'white'}}
+            // style={{float: 'right', marginRight: '50px'}}
+            onClick={() => this.sendTo('/favorite')}
+          >
+            <ActionFavorite />
+          </IconButton>
+        </div>
+        </div>
+        <div className="nav2">
+        <div className="filter">
+        <div className="paleo">
+        Paleo-Friendly Restaruants
+        </div>
         <Filter 
           updatePrice1={this.updatePrice1}
           updatePrice2={this.updatePrice2}
           updatePrice3={this.updatePrice3}
           updatePrice4={this.updatePrice4}
         />
+        </div>
+        <div className="sort">
         <Sort sortRestaurant={this.sortRestaurant}/>
+        </div>
+        </div>
         <RestaurantList 
           restaurants={this.state.isFiltered ? 
           this.state.filtered : this.state.restaurants}
           saveFavorite={this.saveFavorite}
         />
-      </Paper>
+      </div>
     )
   }
 }

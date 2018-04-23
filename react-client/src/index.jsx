@@ -11,17 +11,33 @@ import FavoritePage from './components/FavoritePage/FavoritePage.jsx';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      username: ''
+    }
+    this.updateUsername = this.updateUsername.bind(this);
   }
+
+  updateUsername(username) {
+    this.setState({
+      username: username
+    })
+  }
+
+
 
   render () {
     return (
       <MuiThemeProvider>
         <Router>
           <Switch>
-            <LandingPage exact path="/" component={LandingPage}/>
-            <Registration exact path="/registration" component={Registration}/>
-            <HomePage exact path="/homepage" component={HomePage}/>
-            <FavoritePage exact path="/favorite" component={FavoritePage}/>
+            <LandingPage exact path="/" 
+              component={LandingPage} 
+              updateUsername={this.updateUsername} 
+              name={this.state.username}
+            />
+            <Registration exact path="/registration" component={Registration} name={this.state.username}/>
+            <HomePage exact path="/homepage" component={HomePage} name={this.state.username}/>
+            <FavoritePage exact path="/favorite" component={FavoritePage} name={this.state.username}/>
           </Switch>
         </Router>
       </MuiThemeProvider>

@@ -17,7 +17,6 @@ class Sort extends Component {
       <Paper>
         <SelectField
           floatingLabelText="Sort By"
-        //   value={this.state.value}
           onChange={this.handleChange}
         >
           <MenuItem value={1} primaryText="Price: Low to High" />

@@ -2,13 +2,14 @@ import {withRouter} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import axios from'axios';
-import { AutoComplete, RaisedButton, Paper } from 'material-ui';
+import { AutoComplete, FlatButton, Paper } from 'material-ui';
 
 class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: ''
+    
     }
     this.updateInput = this.updateInput.bind(this);
     this.sendTo = this.sendTo.bind(this);
@@ -19,14 +20,16 @@ class LandingPage extends Component {
     this.setState({
       username: input
     })
+    this.props.updateUsername(this.state.username);
   }
   
   sendTo(path, username = '', userId = '') {
     this.props.history.push({
       pathname: path,
-      username: username,
+      // username: this.props.name,
       userId: userId
     })
+    
   }
 
   handleLogin() {
@@ -48,10 +51,12 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <Paper>
+      <div className="landing">
+      <div className="landing-paper">
 
-        <h3> Welcome To Diet World </h3>
+        <h1> Diet World </h1>
         <AutoComplete
+          inputStyle={{color: "white", fontWeight: "5px", fontSize: "25px"}}
           dataSource={[]}
           hintText='Username'
           ref={'autocomplete'}
@@ -59,19 +64,22 @@ class LandingPage extends Component {
           onNewRequest={this.handleLogin}
         />
 
-        <RaisedButton
-          // style={buttonStyle}
+        <FlatButton
+          style={{color: "white"}}
+          primary={true}
           label='Login'
           onClick={this.handleLogin}
         />
 
-        <RaisedButton
-          // style={buttonStyle}
+        <FlatButton
+          style={{color: "white"}}
+          primary={true}
           label='Register'
           onClick={() => {this.sendTo('/registration')}}
         />
 
-      </Paper>
+      </div>
+      </div>
     )
   }
 }

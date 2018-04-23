@@ -4,15 +4,15 @@ import Restaurant from './Restaurant.jsx';
 
 const RestaurantList = ({restaurants, saveFavorite}) => {
   return (
-    <Paper>
-      <ol>
+  
+      <div>
         {restaurants.map((restaurant, i) => (
-          <li key={i}>
+          <div key={i} className="restaurant">
             <Restaurant restaurant={restaurant} saveFavorite={saveFavorite}/>
-          </li>
+          </div>
         ))}
-      </ol>
-    </Paper>
+      </div>
+
   )
 
 }

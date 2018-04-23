@@ -27,18 +27,20 @@ class Search extends Component {
 
   render() {
     return (
-      <Paper>
+      <div>
         Find  
         <AutoComplete
+          inputStyle={{color: "white"}}
           style={{marginLeft: '10px'}}
           dataSource={[]}
           ref={'autocomplete'}
-          hintText='Restaurant'
+          hintText='what you like'
           onUpdateInput={this.updateTerm}
         />
         
         Near  
         <AutoComplete
+          inputStyle={{color: "white"}}
           style={{marginLeft: '10px'}}
           dataSource={[]}
           ref={'autocomplete'}
@@ -46,11 +48,12 @@ class Search extends Component {
           onUpdateInput={this.updateZipcode}
         />
         <IconButton 
+          iconStyle={{fill: 'white'}}
           onClick={() => this.props.getRestaurants({params: {term: `Paleo ${this.state.term}`, location: this.state.zipcode, radius: 20000}})}
         >
           <ActionSearch />
         </IconButton>
-      </Paper>
+      </div>
     )
   }
 }

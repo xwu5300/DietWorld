@@ -4,15 +4,13 @@ import Favorite from './Favorite.jsx';
 
 const List = ({favorites, deleteFavorite}) => {
   return (
-    <Paper>
-      <ol>
+      <div>
         {favorites.map((favorite, i) => (
-          <li key={i}>
+          <div key={i} className="restaurant">
             <Favorite favorite={favorite} deleteFavorite={deleteFavorite}/>
-          </li>
+          </div>
         ))}
-      </ol>
-    </Paper>
+      </div>
   )
 }
 

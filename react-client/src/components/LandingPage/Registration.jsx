@@ -43,8 +43,11 @@ class Registration extends Component {
 
   render() {
     return (
-      <Paper>
+      <div className="landing">
+      <div className="landing-paper">
+        <h1> Diet World </h1>
         <AutoComplete
+          inputStyle={{color: "white", fontWeight: "5px", fontSize: "25px"}}
           dataSource={[]}
           ref={'autocomplete'}
           hintText='New User'
@@ -53,10 +56,13 @@ class Registration extends Component {
         />
 
         <FlatButton
+          style={{color: "white"}}
+          primary={true}
           label='Register'
           onClick={this.handleRegistration}
         />
-      </Paper>
+      </div>
+      </div>
     )
   }
 }
