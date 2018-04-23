@@ -142,11 +142,6 @@ class HomePage extends Component {
   }
 
   render() {
-    console.log('this.state.price1', this.state.price1)
-    console.log('this.state.price1', this.state.price2)
-    console.log('this.state.price1', this.state.price3)
-    console.log('this.state.price1', this.state.price4)
-    console.log(this.state.restaurants)
     return (
       <div className="home">
         <div className="nav">
