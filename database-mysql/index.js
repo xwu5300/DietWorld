@@ -56,7 +56,6 @@ const getUser = (username, callback) => {
     console.error(err) : 
     callback(results)
   })
-  connection.end();
 }
 
 const saveUser = (username, callback) => {
@@ -74,7 +73,6 @@ connection.connect(function(err) {
     console.error(err) :
     callback(results)
   })
-  connection.end();
 }
 
 // const saveFavorite = (params, callback) => {
@@ -111,7 +109,6 @@ const saveFavorite = (params, callback) => {
     console.error(err) :
     callback()
   })
-  connection.end()
 }
 
 const getFavorite = (userId, callback) => {
@@ -129,7 +126,6 @@ const getFavorite = (userId, callback) => {
     console.error(err) :
     callback(results)
   })
-  connection.end()
 }
 
 const deleteFavorite = (restaurantId, userId, callback) => {
@@ -147,7 +143,6 @@ const deleteFavorite = (restaurantId, userId, callback) => {
     console.error(err) :
     callback(results)
   })
-  connection.end()
 }
 
 module.exports.getUser = getUser;
