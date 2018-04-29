@@ -42,25 +42,39 @@ const connection = mysql.createConnection({
 
 
 const getUser = (username, callback) => {
-  // connection.connect();
+  connection.connect(function(err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+   
+    console.log('connected as id ' + connection.threadId);
+  });
   const query = `SELECT * FROM users WHERE name="${username}";`;
   connection.query(query, (err, results, fields) => {
     (err) ? 
     console.error(err) : 
     callback(results)
   })
-  // connection.end();
+  connection.end();
 }
 
 const saveUser = (username, callback) => {
-  // connection.connect();
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+ 
+  console.log('connected as id ' + connection.threadId);
+});
   const query = `INSERT INTO users (name) VALUES (?);`;
   connection.query(query, [username], (err, results, fields) => {
     (err) ?
     console.error(err) :
     callback(results)
   })
-  // connection.end();
+  connection.end();
 }
 
 // const saveFavorite = (params, callback) => {
@@ -78,7 +92,14 @@ const saveUser = (username, callback) => {
 // }
 
 const saveFavorite = (params, callback) => {
-  // connection.connect();
+  connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+ 
+  console.log('connected as id ' + connection.threadId);
+});
   const restaurant = params.restaurant;
   const categories = restaurant.categories.map((el, i) => el = el.title).join(', ');
   const address = restaurant.location.display_address.join(', ');
@@ -90,29 +111,43 @@ const saveFavorite = (params, callback) => {
     console.error(err) :
     callback()
   })
-  // connection.end()
+  connection.end()
 }
 
 const getFavorite = (userId, callback) => {
-  // connection.connect()
+  connection.connect(function(err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+   
+    console.log('connected as id ' + connection.threadId);
+  });
   const query = `SELECT * FROM favorite WHERE userId="${userId}";`;
   connection.query(query, (err, results, fields) => {
     (err) ? 
     console.error(err) :
     callback(results)
   })
-  // connection.end()
+  connection.end()
 }
 
 const deleteFavorite = (restaurantId, userId, callback) => {
-  // connection.connect()
+  connection.connect(function(err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+   
+    console.log('connected as id ' + connection.threadId);
+  });
   const query = `DELETE FROM favorite WHERE restaurantId="${restaurantId}" AND userId="${userId}";`;
   connection.query(query, (err, results, fields) => {
     (err) ? 
     console.error(err) :
     callback(results)
   })
-  // connection.end()
+  connection.end()
 }
 
 module.exports.getUser = getUser;
