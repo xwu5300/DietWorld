@@ -53,6 +53,7 @@ const getUser = (username, callback) => {
   connection.query(query, (err, results, fields) => {
     if (err) {
       console.error(err)
+      return;
     } else {
       callback(results)
     }
@@ -64,25 +65,12 @@ const saveUser = (username, callback) => {
   connection.query(query, [username], (err, results, fields) => {
     if (err) {
       console.error(err)
+      return
     } else {
       callback(results)
     }
   })
 }
-
-// const saveFavorite = (params, callback) => {
-//   const restaurant = params.restaurant;
-//   const categories = restaurant.categories.map((el, i) => el = el.title).join(', ');
-//   const address = restaurant.location.display_address.join(', ');
-//   const distance = Math.round(restaurant.distance * 0.00062137 * 10) / 10 + 'mile'
-//   const query = `INSERT IGNORE INTO favorite (userId, restaurantId, name, image_url, rating, price, phone, categories, address, review_count, distance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
-//   const values = [params.userId, restaurant.id, restaurant.name, restaurant.image_url, restaurant.rating, restaurant.price, restaurant.display_phone, categories, address, restaurant.review_count, distance];
-//   connection.query(query, values, (err, results, fields) => {
-//     (err) ? 
-//     console.error(err) :
-//     callback()
-//   })
-// }
 
 const saveFavorite = (params, callback) => {
   const restaurant = params.restaurant;
@@ -94,6 +82,7 @@ const saveFavorite = (params, callback) => {
   connection.query(query, values, (err, results, fields) => {
     if (err) {
       console.error(err)
+      return
     } else {
       callback()
     }
@@ -105,6 +94,7 @@ const getFavorite = (userId, callback) => {
   connection.query(query, (err, results, fields) => {
     if (err) {
       console.error(err)
+      return
     } else {
       callback(results)
     }
@@ -116,11 +106,14 @@ const deleteFavorite = (restaurantId, userId, callback) => {
   connection.query(query, (err, results, fields) => {
     if (err) {
       console.error(err)
+      return
     } else {
       callback(results)
     }
   })
 }
+
+connection.end()
 
 module.exports.getUser = getUser;
 module.exports.saveUser = saveUser;
