@@ -144,7 +144,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="home">
-        hello {this.props.name}
         <div className="nav">
         <div className="search">
           <Search getRestaurants={this.getRestaurants}/>

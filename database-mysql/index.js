@@ -39,17 +39,16 @@ const connection = mysql.createConnection({
 //   })
 // })
 
-
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+ 
+  console.log('connected as id ' + connection.threadId);
+});
 
 const getUser = (username, callback) => {
-  connection.connect(function(err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
-    }
-   
-    console.log('connected as id ' + connection.threadId);
-  });
   const query = `SELECT * FROM users WHERE name="${username}";`;
   connection.query(query, (err, results, fields) => {
     (err) ? 
@@ -59,14 +58,6 @@ const getUser = (username, callback) => {
 }
 
 const saveUser = (username, callback) => {
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
- 
-  console.log('connected as id ' + connection.threadId);
-});
   const query = `INSERT INTO users (name) VALUES (?);`;
   connection.query(query, [username], (err, results, fields) => {
     (err) ?
@@ -90,14 +81,6 @@ connection.connect(function(err) {
 // }
 
 const saveFavorite = (params, callback) => {
-  connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
- 
-  console.log('connected as id ' + connection.threadId);
-});
   const restaurant = params.restaurant;
   const categories = restaurant.categories.map((el, i) => el = el.title).join(', ');
   const address = restaurant.location.display_address.join(', ');
@@ -112,14 +95,6 @@ const saveFavorite = (params, callback) => {
 }
 
 const getFavorite = (userId, callback) => {
-  connection.connect(function(err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
-    }
-   
-    console.log('connected as id ' + connection.threadId);
-  });
   const query = `SELECT * FROM favorite WHERE userId="${userId}";`;
   connection.query(query, (err, results, fields) => {
     (err) ? 
@@ -129,14 +104,6 @@ const getFavorite = (userId, callback) => {
 }
 
 const deleteFavorite = (restaurantId, userId, callback) => {
-  connection.connect(function(err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
-    }
-   
-    console.log('connected as id ' + connection.threadId);
-  });
   const query = `DELETE FROM favorite WHERE restaurantId="${restaurantId}" AND userId="${userId}";`;
   connection.query(query, (err, results, fields) => {
     (err) ? 
