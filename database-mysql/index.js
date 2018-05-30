@@ -113,8 +113,6 @@ const deleteFavorite = (restaurantId, userId, callback) => {
   })
 }
 
-connection.end()
-
 module.exports.getUser = getUser;
 module.exports.saveUser = saveUser;
 module.exports.saveFavorite = saveFavorite;
